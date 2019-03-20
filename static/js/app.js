@@ -17,14 +17,14 @@ function init() { 			// Visit '/names' ⟶ default route (app.py)
 				});
 			var nameSelected = doctorNames[0]; // 1st Sample
 			newSelection(nameSelected)
-			console.log(nameSelected)
+			// console.log(nameSelected)
 		});	   // Return ⟶ Function Calls buildCharts(firstSample) & buildTable(firstSample);
 
 };					// Operations ⟶ Adds sample options to # & Returns 1 ⟶ Calls buildCharts(1) & buildTable(1);
 
 function newSelection(drName) {	//  Dropdown Change ⟶ New Sample Selected
-	console.log("doctor = ", drName)
-	console.log('url = ', `/names/${drName}`)
+	// console.log("doctor = ", drName)
+	// console.log('url = ', `/names/${drName}`)
 	if (typeof (drName) != "string"){
 		drName = drName.Name
 	}
@@ -62,40 +62,44 @@ function buildTable(drInfo) { 	// access key/value pairs from @ nameData route &
 };					// Return ⟶ nameData Panel
 
 function buildCharts(drInfo) { 		// build Pie Chart
+	var values = drInfo.map(x=>x.Amount)
+	var labels = drInfo.map(x=>x.Nature)
+	// console.log(values)
+	// console.log(labels)
 	var trace_pie = {
-		values: drInfo.Amount,	// performed in pd df//.slice(0,10),
-		labels: drInfo.Nature,         // performed in pd df//.slice(0,10),
+		values: values,	// performed in pd df//.slice(0,10),
+		labels: labels,         // performed in pd df//.slice(0,10),
 		type: 'pie'
 	};
 	var data_pie = [trace_pie]; //data must be an array; so converted here; 
 	var layout_pie = {
 		title: "'Pie' Chart - Dr Info",
-		height: 400,
-		width: 500
+		// height: 400,
+		// width: 500
 	};
 	Plotly.newPlot('pie', data_pie, layout_pie); // pie chart
 
-	var trace1 = {
-		x: drInfo.Amount, // 
-		y: drInfo.Nature,
-		text: drInfo.State,
-		mode: 'markers',
-		marker: {
-		  size: drInfo.Amount,
-		 // color: blue
-		}
-	      };
+	// var trace1 = {
+	// 	x: drInfo.Amount, // 
+	// 	y: drInfo.Nature,
+	// 	text: drInfo.State,
+	// 	mode: 'markers',
+	// 	marker: {
+	// 	  size: drInfo.Amount,
+	// 	 // color: blue
+	// 	}
+	//       };
 	      
-	var data = [trace1];
+	// var data = [trace1];
 	      
-	var layout = {
-		title: 'Marker Size',
-		showlegend: false,
-		height: 500,
-		width: 1000
-	      };
+	// var layout = {
+	// 	title: 'Marker Size',
+	// 	showlegend: false,
+	// 	height: 500,
+	// 	width: 1000
+	//       };
 	      
-	Plotly.newPlot('bubble', data, layout);
+	// Plotly.newPlot('bubble', data, layout);
 };					// // Return ⟶ append each chart to html
 
 function buildMap(drInfo){

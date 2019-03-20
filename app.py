@@ -68,23 +68,5 @@ def dr_information(name):              # Return ⟶ (Json of queried data) `otu_
 	doctor_json = json.dumps([dict(name) for name in dr_info])
 	return  doctor_json
 
-	# query = db.\
-	# 	session.\
-	# 	query(sample_data_table_ref).\
-	# 	statement
-
-	# samples_df = pd.read_sql_query(query, db.session.bind)
-	# # Filter samples w/ values > 1
-	# samples_df_filtered = samples_df.loc[samples_df[sample] > 1, ["otu_id", "otu_label", sample]] #only care for sample values that are present
-	# samples_df_filtered = samples_df_filtered.sort_values(by=[sample], ascending=False)           #sort <sample> column ↓
-	# samples_df_filtered = samples_df_filtered[0:10][:]					      #splice 1st 10 rows; 
-
-	# sample_data = { # (Json of queried data) `otu_ids`, `otu_labels`& `sample_values`
-	# 	"otu_ids": samples_df_filtered.otu_id.values.tolist(),
-	# 	"sample_values": samples_df_filtered[sample].values.tolist(),
-	# 	"otu_labels": samples_df_filtered.otu_label.tolist(),
-	# 	}
-	# return jsonify(sample_data)
-
 if __name__ == "__main__":
     app.run()
