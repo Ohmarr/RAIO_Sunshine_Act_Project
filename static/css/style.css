@@ -1,14 +1,21 @@
 /* remove default margin and padding from body */
 body {
-    padding: 20px;
-    margin: 20px;
-  }
-  
-  /* set map, body, and html to 100% of the screen size */
-  #map,
-  body,
-  html {
-    height: 100%;
-    width: 100%
-    
-  }
+	padding: 20px;
+	margin: 20px;
+}
+/* set map, body, and html to 100% of the screen size */
+#map, body, html {
+	height: 100%;
+	width: 100%
+}
+
+#RAIOlogo {
+	max-height: 145px; 
+	/*max-width: 150px;*/
+}
+#pie {
+	height: 800px;
+}
+#map { height: 550px; }
+
+#title-section {max-height: 225px;}

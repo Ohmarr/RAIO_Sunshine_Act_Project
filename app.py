@@ -59,9 +59,7 @@ def names():		          # Return ⟶ list(JSON): sample
 	return names_json   
 
 @app.route("/names/<name>")   # Parameter=sample ⟶ Visit route; query `sample_data`
-def dr_information(name):              # Return ⟶ (Json of queried data) `otu_ids`, `otu_labels`& `sample_values`d
- # sample_columns = ['otu_ids', 'sample_values', 'otu_labels']
- # samples_df_all = pd.DataFrame(columns=sample_columns).fillna(0)
+def dr_information(name):              # Return ⟶ (Json of queried data)
 	dr_info = engine.execute('SELECT * FROM OrthoFix WHERE Name = "{}"'.format(name)).fetchall()
 	#orthofix_df = pd.read_sql_query('SELECT Name FROM OrthoFix', connectionURI)
 	#print([dict(r) for r in temp]) 
