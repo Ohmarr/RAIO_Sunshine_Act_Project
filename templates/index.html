@@ -39,7 +39,7 @@
 				<img id='RAIOlogo' src="{{ url_for('static', filename='Images/RAIO_LogoIII.png') }}"
 					alt="Raio Logo">
 				<h1>Orthofix Sunshine Quicklook</h1>
-				<p>Physician Payment Data</p>
+				<div>Physician Payment Data</div>
 			</div>
 		</div>
 		<div class='container-fluid'>
@@ -55,8 +55,8 @@
 					<select id="selDataset" onchange="newSelection(this.value)"></select>
 				</div>
 				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Dr Information</h3>
+					<div class="panel-heading" id='table-heading_dr'>
+						<h3 class="panel-title" id='docpanel'>Dr Information</h3>
 					</div>
 					<div id="doctortable" class="panel-body">
 					</div>

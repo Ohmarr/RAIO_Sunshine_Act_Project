@@ -79,7 +79,7 @@ function init() { 			// Visit '/names' ⟶ default route (app.py)
 						.text(name.Name)     // add text
 						.property("value", name.Name);
 				});
-			var initialDoctor = doctorNames[0]; // 1st Sample
+			var initialDoctor = doctorNames[26]; // 1st Sample
 			newSelection(initialDoctor)
 			console.log(initialDoctor)
 		});	   // Return ⟶ Function Calls buildCharts(firstSample) & buildTable(firstSample);
@@ -120,7 +120,7 @@ function buildInitialMap() {
 	var stateName = []
 	var stateCoordinates = []
 	var mapGeoJson = geoData
-	var colorScale = chroma.scale('Set2').domain([0, 51]).out('hex')
+	var colorScale = chroma.scale(['purple']).domain([0, 51]).out('hex')
 
 	// Actual loop to get state name and border coordinates from GeoJson
 	for (var i = 0; i < geoData.features.length; i++) {
@@ -185,13 +185,15 @@ function buildTable(drInfo) { 	// access key/value pairs from @ nameData route &
 			//ID: ${drInfo[0].Physician_ID},\n
 			// Payment_Name: ${drInfo[0].Payment_Name},\n
 			// Primary Key: ${drInfo[0].pk_column}.\n`
-			`<strong>Name: </strong>${drInfo[0].Name},<br>
+
+			`
+			<strong>Total Number of Payments: </strong>${drInfo[0].NumberofPayment},<br>
+			<strong>Name: </strong>${drInfo[0].Name},<br><br>
 			<strong>State: </strong>${drInfo[0].State},<br>
 			<strong>Zip Code: </strong>${drInfo[0].ZipCode},<br>
 			<strong>GPO Name: </strong>${drInfo[0].GPO_Name},<br>
 			<strong>Amount: </strong>${drInfo[0].Amount},<br>
 			<strong>Transaction Date: </strong>${drInfo[0].PaymentDate},<br>
-			<strong>Number of Payments: </strong>${drInfo[0].NumberofPayment},<br>
 			<strong>Form of payment: </strong>${drInfo[0].Formofpayment},<br>
 			<strong>Nature: </strong>${drInfo[0].Nature},<br>`
 
@@ -207,11 +209,13 @@ function buildCharts(drInfo) { 		// build Pie Chart
 	var trace_pie = {
 		values: values,	// performed in pd df//.slice(0,10),
 		labels: labels,         // performed in pd df//.slice(0,10),
+		marker: {colors: ['purple', 'orange']},
 		type: 'pie'
 	};
 	var data_pie = [trace_pie]; //data must be an array; so converted here; 
 	var layout_pie = {
 		title: "'Pie' Chart - Dr Info",
+
 		// height: 400,
 		// width: 500
 	};
@@ -219,9 +223,9 @@ function buildCharts(drInfo) { 		// build Pie Chart
 };					// // Return ⟶ append each chart to html
 
 function buildMap(drInfo) {
-		geoLayer.setStyle(function(f) {
+		geoLayer.setStyle(f=>{
 		if (drInfo.State === f.properties.STUSPS) {
-			return {fillColor:'orange'}}
+			return {fillColor:'orange', fillOpacity:'.85', weight: '5'}}
 		else return {fillColor: 'grey'}
 })};
 

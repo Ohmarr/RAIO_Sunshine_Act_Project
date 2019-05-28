@@ -19,3 +19,7 @@ body {
 #map { height: 550px; }
 
 #title-section {max-height: 225px;}
+
+#doctortable {color: purple}
+
+#table-heading_dr {color:orange}

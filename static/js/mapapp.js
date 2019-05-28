@@ -75,7 +75,7 @@ L.tileLayer(tileLayer, {	// add tileLayer of background map
 	center: { lat: 41.443369776524136, lng: -87.25358963012695 }
 }).addTo(myMap);		// Place into DOM element id='map'
 
-console.log(Object.entries(geoData))// Console.logging to make sure json data is there and then filter through data from console in browser to spot check
+//console.log(Object.entries(geoData))// Console.logging to make sure json data is there and then filter through data from console in browser to spot check
 
 function drawMap(state) {
 	var stateName = []
