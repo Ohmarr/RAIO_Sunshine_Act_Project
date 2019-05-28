@@ -1,6 +1,6 @@
 <h1 align=center> Sunshine Act Auditor </h1> <br>
 
-![alt text](https://github.com/Ohmarr/RAIO_Sunshine_Act_Project/blob/master/dev/RAIO_LogoIII.png "RAIO LOGO")
+![logo](https://github.com/Ohmarr/RAIO_Sunshine_Act_Project/blob/master/static/Images/RAIO_LogoIII.png "RAIO LOGO")
 <br>
 ### Project Members:
 #### Grant Hewlett, Mohammadali Naghibi, Omar Abusheikh
